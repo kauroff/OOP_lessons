@@ -1,14 +1,29 @@
 class Category():
     name: str
     desc: str
-    products: list
+    __products: list
     count_category = 0
     uniq_products = 0
 
     def __init__(self, name, desc, products):
         self.name = name
         self.desc = desc
-        self.products = products
+        self.__products = products
+        Category.count_category += 1
+        Category.uniq_products += len(self.__products)
+
+    @classmethod
+    def add_product(cls, product):
+        cls.__products.append(product)
+        cls.uniq_products += 1
+
+    @property
+    def products(self):
+        for product in self.__products:
+            name = product['name']
+            price = product['price']
+            quantity = product['quantity']
+            print(f'{name}, {price} руб. Остаток: {quantity} шт.')
 
 
 class Product():
@@ -22,3 +37,20 @@ class Product():
         self.desc = desc
         self.price = price
         self.quantity = quantity
+
+    @classmethod
+    def add_product(cls, product_data: dict):
+        return cls.__init__(**product_data)
+
+    @property
+    def price(self):
+        return self.price
+
+    @price.setter
+    def set_price(self, value):
+        if value <= 0:
+            return 'Введена некорректная цена'
+        elif value < self.price:
+            answer = input('Вы уверены, что хотите снизить стоимость? Введите y-да, n-нет')
+            if answer == 'y':
+                self.price = value
