@@ -1,4 +1,5 @@
-from func import Category, Product
+from category import Category
+from product import Product
 import json
 
 dict_of_categoryes = {}
