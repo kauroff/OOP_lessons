@@ -22,3 +22,5 @@ for i in range(len(data)):
         quantity = data[i]['products'][n]['quantity']
         dict_of_products[count] = Product(name, desc, price, quantity)
         count += 1
+
+print(dict_of_categoryes[0].products)
