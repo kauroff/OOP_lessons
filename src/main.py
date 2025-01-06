@@ -21,18 +21,3 @@ for i in range(len(data)):
         quantity = data[i]['products'][n]['quantity']
         dict_of_products[count] = Product(name, desc, price, quantity)
         count += 1
-
-print(dict_of_products)
-print(dict_of_products[0].name)
-print(dict_of_products[1].price)
-print(dict_of_products[2].desc)
-print(dict_of_products[3].quantity)
-print(dict_of_categoryes)
-print(dict_of_categoryes[0].name)
-print(dict_of_categoryes[1].desc)
-print(dict_of_categoryes[2].products)
-print(data)
-print(dict_of_products[3])
-print(dict_of_categoryes[0].count_category)
-print(dict_of_categoryes[0].uniq_products)
-# Product.add_product({'name': 'Яблоко', 'description': 'Вкусное', 'price': 50.0, 'quantity': 17})
