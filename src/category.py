@@ -36,6 +36,23 @@ class Category():
         cls.uniq_products += 1
 
     @property
+    def check_products(self):
+        """
+        Метод-геттер, который возвращает при вызове метода .products список товаров
+        :return: список товаров
+        """
+        return [{'name': product['name'], 'price': product['price'], 'quantity': product['quantity']} for product in
+                self.__products]
+
+    @check_products.setter
+    def set_products(self):
+        """
+        Метод-сеттер, который устанавливает необходимые поля для товара
+        :return:
+        """
+        pass
+
+    @property
     def products(self):
         """
         Метод-геттер, который возвращает при вызове метода .products список товаров в заданном виде
@@ -60,4 +77,3 @@ class Category():
         :return: строковое отображение
         """
         return f'{self.name}, количество продуктов: {self.__len__()} шт.'
-

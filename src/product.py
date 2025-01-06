@@ -1,3 +1,6 @@
+from category import Category
+
+
 class Product():
     """
     Класс для работы с товарами
@@ -17,7 +20,7 @@ class Product():
         """
         self.name = name
         self.desc = desc
-        self.price = price
+        self.__price = price
         self.quantity = quantity
 
     @classmethod
@@ -28,6 +31,20 @@ class Product():
         :return: объект товара
         """
         return cls.__init__(**product_data)
+
+    @classmethod
+    def check_products(cls, product_data: dict):
+        """
+        Класс-метод, который проверяет наличие такого же товара.
+        В случае совпадения складывает количество юнитов в наличии.
+        При конфликте цен выбирает более высокую.
+        :param product_data: данные о товаре в виде словаря
+        :return:
+        """
+        if product_data['name'] not in Category.check_products['name']:
+            pass
+        else:
+            pass
 
     @property
     def price(self):
