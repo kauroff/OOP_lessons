@@ -1,6 +1,3 @@
-from category import Category
-
-
 class Product():
     """
     Класс для работы с товарами
@@ -42,11 +39,10 @@ class Product():
         :return:
         """
         if product_data['name'] not in [product['name'] for product in Category.check_products]:
-            pass # добавление товара
+            pass  # добавление товара
         else:
-            #
-            #
             pass
+
     @property
     def price(self):
         """
