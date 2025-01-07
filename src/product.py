@@ -41,11 +41,12 @@ class Product():
         :param product_data: данные о товаре в виде словаря
         :return:
         """
-        if product_data['name'] not in Category.check_products['name']:
-            pass
+        if product_data['name'] not in [product['name'] for product in Category.check_products]:
+            pass # добавление товара
         else:
+            #
+            #
             pass
-
     @property
     def price(self):
         """
