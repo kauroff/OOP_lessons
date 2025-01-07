@@ -24,7 +24,7 @@ class Category():
         Category.uniq_products += len(self.__products)
 
     @classmethod
-    def add_product_in_category(cls, product):
+    def add_product_in_category(cls, product: dict):
         """
         Метод класса, необходимый для добавления продукта.
         Принимает объект товара и добавляет его в список
