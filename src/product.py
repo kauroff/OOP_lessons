@@ -78,4 +78,6 @@ class Product:
         :param other: стоиомсть других товаров
         :return: полную стоимость
         """
-        return self.price * self.quantity + other.price * other.quantity
+        if type(self) == type(other):
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError
