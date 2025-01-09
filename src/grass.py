@@ -5,6 +5,9 @@ class LawnGrass(Product):
     """
     Наслденик класса Product с дополнительными полями
     """
+    country: str
+    time: int
+    color: str
 
     def __init__(self, name, desc, price, quantity, country, time, color):
         super().__init__(name, desc, price, quantity)
