@@ -1,4 +1,8 @@
-class Product:
+from abc_product import AbcProduct
+from mixin import MixinRepr
+
+
+class Product(AbcProduct, MixinRepr):
     """
     Класс для работы с товарами
     Включает в себя: имя, описание, цену, количество товара
@@ -15,10 +19,7 @@ class Product:
         :param price: цена
         :param quantity: количество товара
         """
-        self.name = name
-        self.desc = desc
-        self.__price = price
-        self.quantity = quantity
+        super().__init__(name, desc, price, quantity)
 
     @classmethod
     def create_product(cls, product_data: dict):
