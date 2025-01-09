@@ -1,3 +1,6 @@
+from product import Product
+
+
 class Category:
     """
     Класс для работы с категориями товаров
@@ -24,16 +27,18 @@ class Category:
         Category.uniq_products += len(self.__products)
 
     @classmethod
-    def add_product_in_category(cls, product: dict):
+    def add_product_in_category(cls, product):
         """
         Метод класса, необходимый для добавления продукта.
-        Принимает объект товара и добавляет его в список
+        Принимает объект товара и добавляет его в списокA
         __products: list
         :param product: объект товара
         :return: None
         """
-        cls.__products.append(product)
-        cls.uniq_products += 1
+        product_cls = type(product)
+        if issubclass(product_cls, Product) and isinstance(product, product_cls):
+            cls.__products.append(product)
+            cls.uniq_products += 1
 
     @property
     def check_products(self):
