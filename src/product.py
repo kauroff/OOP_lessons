@@ -37,7 +37,7 @@ class Product(AbcProduct, MixinRepr):
         В случае совпадения складывает количество юнитов в наличии.
         При конфликте цен выбирает более высокую.
         :param product_data: данные о товаре в виде словаря
-        :return:
+        :return: ---
         """
         if product_data['name'] not in [product['name'] for product in Category.check_products]:
             pass  # добавление товара

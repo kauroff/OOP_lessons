@@ -30,15 +30,18 @@ class Category:
     def add_product_in_category(cls, product):
         """
         Метод класса, необходимый для добавления продукта.
-        Принимает объект товара и добавляет его в списокA
+        Принимает объект товара и добавляет его в список
         __products: list
         :param product: объект товара
-        :return: None
+        :return: None / ошибка
         """
         product_cls = type(product)
         if issubclass(product_cls, Product) and isinstance(product, product_cls):
-            cls.__products.append(product)
-            cls.uniq_products += 1
+            if product.quantity == 0:
+                raise ValueError('Товар с нулевым количеством не может быть добавлен')
+            else:
+                cls.__products.append(product)
+                cls.uniq_products += 1
 
     @property
     def check_products(self):
@@ -82,3 +85,18 @@ class Category:
         :return: строковое отображение
         """
         return f'{self.name}, количество продуктов: {self.__len__()} шт.'
+
+    def average_price(self):
+        """
+        Метод, который подсчитывает средний ценник всех товаров в категории.
+        :return: средний ценник / 0
+        """
+        count_prod = 0
+        total_price = 0
+        for product in self.__products:
+            count_prod += product['quantity']
+            total_price
+        try:
+            return total_price / count_prod
+        except:
+            return 0
