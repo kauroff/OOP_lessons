@@ -12,7 +12,7 @@ class Generator:
     def __iter__(self):
         """
         Дандер-метод, создание генератора
-        :return:
+        :return: self
         """
         self.current_position = -1
         return self
@@ -20,7 +20,7 @@ class Generator:
     def __next__(self):
         """
         Дандер-метод, переход к следующей шагу
-        :return:
+        :return: следующий шаг / ошибка
         """
         if self.current_position + 1 < len(self.category):
             self.current_position += 1
