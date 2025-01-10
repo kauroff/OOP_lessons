@@ -1,5 +1,5 @@
-from abc_product import AbcProduct
-from mixin import MixinRepr
+from src.abc_product import AbcProduct
+from src.mixin import MixinRepr
 
 
 class Product(AbcProduct, MixinRepr):

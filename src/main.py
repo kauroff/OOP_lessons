@@ -1,6 +1,6 @@
-from category import Category
-from product import Product
-from smartphone import Smartphone
+from src.category import Category
+from src.product import Product
+from src.smartphone import Smartphone
 import json
 
 dict_of_categoryes = {}
