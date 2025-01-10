@@ -1,4 +1,4 @@
-from product import Product
+from src.product import Product
 
 
 class Category:
@@ -27,7 +27,7 @@ class Category:
         Category.uniq_products += len(self.__products)
 
     @classmethod
-    def add_product_in_category(cls, product):
+    def add_product_in_category(cls, product: dict):
         """
         Метод класса, необходимый для добавления продукта.
         Принимает объект товара и добавляет его в список
@@ -49,7 +49,7 @@ class Category:
         Метод-геттер, который возвращает при вызове метода .products список товаров
         :return: список товаров
         """
-        return [{'name': product['name'], 'price': product['price'], 'quantity': product['quantity']} for product in
+        return [{'name': [poduct]['name'], 'description': [product]['desc'], 'price': [poduct]['price'], 'quantity': [poduct]['quantity']} for product in
                 self.__products]
 
     @check_products.setter
