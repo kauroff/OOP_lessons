@@ -18,7 +18,7 @@ class Product(AbcProduct, MixinRepr):
         super().__init__(name, desc, price, quantity)
 
     @classmethod
-    def create_product(cls, product_data: dict):
+    def create_product(cls, product_data: dict): # не протестировано
         """
         Метод, который принимает товар и создает объект, который далее можно добавить в список товаров
         :param product_data: данные о товаре, представление в виде словаря
@@ -27,7 +27,7 @@ class Product(AbcProduct, MixinRepr):
         return cls.__init__(cls, **product_data)
 
     @classmethod
-    def check_products(cls, product_data: dict):
+    def check_products(cls, product_data: dict): # не протестировано
         """
         Класс-метод, который проверяет наличие такого же товара.
         В случае совпадения складывает количество юнитов в наличии.
@@ -41,7 +41,7 @@ class Product(AbcProduct, MixinRepr):
             pass
 
     @property
-    def price(self):
+    def price(self): # не протестировано
         """
         Метод-геттер для цены товара
         :return: цену товара
@@ -49,7 +49,7 @@ class Product(AbcProduct, MixinRepr):
         return self.price
 
     @price.setter
-    def set_price(self, value):
+    def set_price(self, value): # не протестирована
         """
         Метод-сеттер цены товара с проверкой на корректность введенных данных
         :param value: новое значение цены товара
@@ -61,15 +61,18 @@ class Product(AbcProduct, MixinRepr):
             answer = input('Вы уверены, что хотите снизить стоимость? Введите y-да, n-нет')
             if answer == 'y':
                 self.price = value
+            else:
+                self.price
+        return self.price
 
-    def __str__(self):
+    def __str__(self): # не протестирована
         """
         Дандер-метод для строкового отображения класса
         :return: строковое отображение
         """
         return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
 
-    def __add__(self, other):
+    def __add__(self, other): # не протестирована
         """
         Дандер-метод для подсчета полной стоимости товаров
         :param other: стоиомсть других товаров
