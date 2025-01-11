@@ -7,10 +7,6 @@ class Product(AbcProduct, MixinRepr):
     Класс для работы с товарами
     Включает в себя: имя, описание, цену, количество товара
     """
-    name: str
-    desc: str
-    price: float
-    quantity: int
 
     def __init__(self, name, desc, price, quantity):
         """
@@ -28,7 +24,7 @@ class Product(AbcProduct, MixinRepr):
         :param product_data: данные о товаре, представление в виде словаря
         :return: объект товара
         """
-        return cls.__init__(**product_data)
+        return cls.__init__(cls, **product_data)
 
     @classmethod
     def check_products(cls, product_data: dict):
