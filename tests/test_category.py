@@ -44,14 +44,13 @@ def test_check_products(category):
         }]
 
 
-def test_products(category):
-    assert category.products == None # команда выводит в консоль, но не возвращает значения
-
 def test_len(category):
     assert category.__len__() == 13
+
 
 def test_str(category):
     assert category.__str__() == 'Шкафы, количество продуктов: 13 шт.'
 
+
 def test_average_price(category):
-    pass
+    assert category.average_price() == 13076.9231
