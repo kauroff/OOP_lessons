@@ -2,6 +2,10 @@ from abc import ABC, abstractmethod
 
 
 class AbcProduct(ABC):
+    name: str
+    desc: str
+    price: float
+    quantity: int
     @abstractmethod
     def __init__(self, name, desc, price, quantity):
         """
