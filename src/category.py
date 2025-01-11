@@ -61,7 +61,7 @@ class Category:
         pass
 
     @property
-    def products(self):
+    def products(self):  # не протестировано
         """
         Метод-геттер, который возвращает при вызове метода .products список товаров в заданном виде
         :return: список товаров в заданном формате в консоль
@@ -98,8 +98,8 @@ class Category:
         total_price = 0
         for product in self.__products:
             count_prod += product['quantity']
-            total_price
+            total_price += product['price'] * product['quantity']
         try:
-            return total_price / count_prod
+            return round(total_price / count_prod, 4)
         except:
             return 0
