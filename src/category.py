@@ -27,7 +27,7 @@ class Category:
         Category.uniq_products += len(self.__products)
 
     @classmethod
-    def add_product_in_category(cls, product: dict):
+    def add_product_in_category(cls, product: dict):  # не протестировано
         """
         Метод класса, необходимый для добавления продукта.
         Принимает объект товара и добавляет его в список
@@ -37,6 +37,7 @@ class Category:
         """
         product_cls = type(product)
         if issubclass(product_cls, Product) and isinstance(product, product_cls):
+            # перепроверить
             if product.quantity == 0:
                 raise ValueError('Товар с нулевым количеством не может быть добавлен')
             else:
@@ -52,7 +53,7 @@ class Category:
         return self.__products
 
     @check_products.setter
-    def set_products(self):
+    def set_products(self):  # не протестировано
         """
         Метод-сеттер, который устанавливает необходимые поля для товара
         :return:
@@ -76,7 +77,10 @@ class Category:
         Дандер-метод для подсчета количества продуктов в категории
         :return: количество продуктов
         """
-        return len(self.__products[2])
+        count = 0
+        for product in self.__products:
+            count += product['quantity']
+        return count
 
     def __str__(self):
         """
