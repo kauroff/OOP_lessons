@@ -49,8 +49,7 @@ class Category:
         Метод-геттер, который возвращает при вызове метода .products список товаров
         :return: список товаров
         """
-        return [{'name': [poduct]['name'], 'description': [product]['desc'], 'price': [poduct]['price'], 'quantity': [poduct]['quantity']} for product in
-                self.__products]
+        return self.__products
 
     @check_products.setter
     def set_products(self):
