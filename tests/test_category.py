@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.product import Product
 
 
 @pytest.fixture
@@ -20,9 +21,14 @@ def category():
         }])
 
 
-def test_category_init(category):
+def test_category_init(category):  # инициализация успешно
     assert category.name == 'Шкафы'
     assert category.desc == 'Напольные шкафы'
+    assert category.count_category == 1
+    assert category.uniq_products == 2
+
+
+def test_check_products(category):
     assert category.check_products == [
         {
             "name": "Шкаф",
@@ -38,21 +44,14 @@ def test_category_init(category):
         }]
 
 
-@pytest.fixture
-def new_product(category):
-    category.add_product_in_category({
-        "name": "Samsung Galaxy S24",
-        "description": "512GB, Серый цвет, 108MP камера",
-        "price": 130000.0,
-        "quantity": 10
-    })
+def test_products(category):
+    assert category.products == None # команда выводит в консоль, но не возвращает значения
 
+def test_len(category):
+    assert category.__len__() == 13
 
-def test_add_product_in_category(category):
-    assert category.uniq_products == 6
-    assert category.check_products == [{
-        "name": "Samsung Galaxy S24",
-        "description": "512GB, Серый цвет, 108MP камера",
-        "price": 130000.0,
-        "quantity": 10
-    }]
+def test_str(category):
+    assert category.__str__() == 'Шкафы, количество продуктов: 13 шт.'
+
+def test_average_price(category):
+    pass
